@@ -1,20 +1,33 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { ProductTableComponent } from './product-table/product-table.component';
+import { ProductChartComponent } from './product-chart/product-chart.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/products', pathMatch: 'full' },
+  { path: 'products', component: ProductTableComponent },
+  { path: 'charts', component: ProductChartComponent },
+  // Add more routes as needed
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProductTableComponent,
+    ProductChartComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes),
+    NgxChartsModule
   ],
-  providers: [
-    provideClientHydration()
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
