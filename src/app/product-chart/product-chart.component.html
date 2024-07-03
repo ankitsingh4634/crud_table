@@ -1,13 +1,11 @@
-<!-- product-chart.component.html -->
 <ngx-charts-bar-vertical
-
+  [scheme]="colorScheme"
   [results]="chartData"
-  [gradient]="false"
   [xAxis]="true"
   [yAxis]="true"
   [legend]="true"
   [showXAxisLabel]="true"
   [showYAxisLabel]="true"
-  [xAxisLabel]="'Product'"
-  [yAxisLabel]="'Price'"
-></ngx-charts-bar-vertical>
+  xAxisLabel="Products"
+  yAxisLabel="Price">
+</ngx-charts-bar-vertical>

@@ -1,6 +1,5 @@
-// app.component.ts
 import { Component } from '@angular/core';
-import { Product } from './product.interface'; // Adjust path as needed
+import { Product } from './product.interface';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +7,14 @@ import { Product } from './product.interface'; // Adjust path as needed
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  products: Product[] = [];
+  products: Product[] = [
+    { id: 1, name: 'Product 1', price: 100, category: 'Category 1' },
+    { id: 2, name: 'Product 2', price: 200, category: 'Category 2' },
+    { id: 3, name: 'Product 3', price: 300, category: 'Category 3' },
+    { id: 4, name: 'Product 4', price: 400, category: 'Category 4' }
+  ];
 
-  // Example initialization
-  constructor() {
-    this.products = [
-      { id: 1, name: 'Product A', price: 100, category: 'Category A' },
-      { id: 2, name: 'Product B', price: 150, category: 'Category B' }
-    ];
-  }
-
-  updateProducts(updatedProducts: Product[]) {
-    this.products = updatedProducts;
+  updateProducts(products: Product[]) {
+    this.products = [...products];
   }
 }

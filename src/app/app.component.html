@@ -1,8 +1,2 @@
-<!-- app.component.html -->
-<div>
-  <app-product-table [products]="products" (productsChange)="updateProducts($event)"></app-product-table>
-</div>
-
-<div>
-  <app-product-chart [products]="products"></app-product-chart>
-</div>
+<app-product-table [products]="products" (productsChange)="updateProducts($event)"></app-product-table>
+<app-product-chart [products]="products"></app-product-chart>

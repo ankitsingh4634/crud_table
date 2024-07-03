@@ -1,29 +1,25 @@
-<!-- product-table.component.html -->
 <form [formGroup]="productForm" (ngSubmit)="editingProduct ? updateProduct() : addProduct()">
-  <input type="text" formControlName="name" placeholder="Name">
-  <input type="number" formControlName="price" placeholder="Price">
-  <input type="text" formControlName="category" placeholder="Category">
-  <button type="submit">{{ editingProduct ? 'Update' : 'Add' }}</button>
+  <input formControlName="name" placeholder="Product Name" />
+  <input formControlName="price" type="number" placeholder="Price" />
+  <input formControlName="category" placeholder="Category" />
+  <button type="submit">{{ editingProduct ? 'Update Product' : 'Add Product' }}</button>
+  <button type="button" (click)="productForm.reset(); editingProduct = null;">Cancel</button>
 </form>
 
 <table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Category</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let product of products">
-      <td>{{ product.id }}</td>
-      <td>{{ product.name }}</td>
-      <td>{{ product.price }}</td>
-      <td>{{ product.category }}</td>
-      <td>
-        <button (click)="editProduct(product)">Edit</button>
-        <button (click)="deleteProduct(product)">Delete</button>
-      </td>
-
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Category</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let product of products">
+    <td>{{ product.name }}</td>
+    <td>{{ product.price }}</td>
+    <td>{{ product.category }}</td>
+    <td>
+      <button (click)="editProduct(product)">Edit</button>
+      <button (click)="deleteProduct(product)">Delete</button>
+    </td>
+  </tr>
+</table>

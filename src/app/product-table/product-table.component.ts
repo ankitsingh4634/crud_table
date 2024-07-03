@@ -1,4 +1,3 @@
-// product-table.component.ts
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from '../product.interface';
