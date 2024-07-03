@@ -1,25 +1,44 @@
-<form [formGroup]="productForm" (ngSubmit)="editingProduct ? updateProduct() : addProduct()">
-  <input formControlName="name" placeholder="Product Name" />
-  <input formControlName="price" type="number" placeholder="Price" />
-  <input formControlName="category" placeholder="Category" />
-  <button type="submit">{{ editingProduct ? 'Update Product' : 'Add Product' }}</button>
-  <button type="button" (click)="productForm.reset(); editingProduct = null;">Cancel</button>
-</form>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Category</th>
-    <th>Actions</th>
-  </tr>
-  <tr *ngFor="let product of products">
-    <td>{{ product.name }}</td>
-    <td>{{ product.price }}</td>
-    <td>{{ product.category }}</td>
-    <td>
-      <button (click)="editProduct(product)">Edit</button>
-      <button (click)="deleteProduct(product)">Delete</button>
-    </td>
-  </tr>
-</table>
+<div class="main-container">
+<div class="product-form-container">
+  <form [formGroup]="productForm" (ngSubmit)="editingProduct ? updateProduct() : addProduct()">
+    <div class="form-group">
+      <input formControlName="name" placeholder="Product Name" class="form-control" />
+    </div>
+    <div class="form-group">
+      <input formControlName="price" type="number" placeholder="Price" class="form-control" />
+    </div>
+    <div class="form-group">
+      <input formControlName="category" placeholder="Category" class="form-control" />
+    </div>
+    <div class="form-buttons">
+      <button type="submit" class="btn btn-primary">{{ editingProduct ? 'Update Product' : 'Add Product' }}</button>
+      <button type="button" class="btn btn-secondary" (click)="productForm.reset(); editingProduct = null;">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<div class="product-table-container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.category }}</td>
+        <td>
+          <button class="btn btn-info btn-sm" (click)="editProduct(product)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteProduct(product)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
